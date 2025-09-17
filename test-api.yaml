@@ -1,0 +1,44 @@
+openapi: 3.0.0
+info:
+  title: Test Vulnerable API
+  version: 1.0.0
+servers:
+  # The base URL the scanner will use
+  - url: http://localhost:3000/v1 
+
+paths:
+  /v1/status:
+    # Unauthenticated, should be fine
+    get:
+      summary: Get API status
+      responses:
+        '200':
+          description: OK
+  
+  /v1/users/{userId}:
+    # IDOR Potential: Unauthenticated, uses a direct ID
+    get:
+      summary: Get user details by ID
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: User details
+          content:
+            application/json:
+              example: 
+                id: 123
+                email: "testuser@example.com" # PII Leak
+                auth_token: "AKIAJZZZZZZZZZZZZZZZ" # Secret Leak
+  
+  /v1/login:
+    # Rate Limit Vulnerability: Unauthenticated, needs rate limiting
+    post:
+      summary: Basic login attempt
+      responses:
+        '200':
+          description: Success
