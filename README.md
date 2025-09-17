@@ -2,9 +2,9 @@
 
 **Seca** is a lightweight, opinionated command-line interface (CLI) tool designed to quickly audit unauthenticated endpoints defined in an OpenAPI (Swagger) specification for common, critical security vulnerabilities.
 
-By simulating basic, high-volume, and data-access requests, it helps developers and security teams identify potential risks such as **IDOR (Insecure Direct Object Reference)**, **PII/Secret Data Leaks**, and **Brute-Force/Denial-of-Service (DoS) vulnerabilities** due to missing Rate Limits.
+By simulating basic, high-volume, and data-access requests, it helps developers identify potential risks such as **IDOR (Insecure Direct Object Reference)**, **PII/Secret Data Leaks**, and **Brute-Force/Denial-of-Service (DoS) vulnerabilities** due to missing Rate Limits.
 
-This project is built using Node.js and is suitable for integration into CI/CD pipelines or as a preliminary local development security check.
+Note that this is a very initial version and may not cover many security cases yet.
 
 ## Features
 
