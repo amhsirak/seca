@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@apidevtools/swagger-parser": "^12.0.0",
+    "axios": "^1.12.2",
+    "cli-table3": "^0.6.5",
+    "commander": "^14.0.1",
+    "express": "^5.1.0",
+    "js-yaml": "^4.1.0",
+    "p-limit": "^7.1.1"
+  }
+}
